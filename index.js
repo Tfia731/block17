@@ -46,34 +46,43 @@ console.table(drinksUnderfive);
 
 //runs
 
-//is even?
+//is even
 
 
-const PriceEven = (price) => {
-    return price.even === 2;
+const PriceEven = (drink) => {
+    return drink.price %2 === 0;
 }
-const drinkPriceEven = coffeeMenu.filter(even);
-console.table(isEven);
-
-// error? where?
+const drinkPriceEven = coffeeMenu.filter(PriceEven);
+console.table(DrinkPriceEven);
 
 
 // total cost
 
-const totalcost = (price); {
-    return priceArray;
+const getPrice = (drink) => {
+    return drink.price;
 }
-const totalPrice = priceArray.reduce(totalPrice);
-console.log(totalPrice)
+
+const MenuTotal = (accumulator, currentValue) => {
+    return accumulator + currentValue;
+}
+
+const menuPrices = coffeeMenu.map(getPrice);
+const menuTotal = menuPrices.reduce(MenuTotal);
+console.log(menuTotal);
+
 
 // seasonal bevvs
 
 const seasonal = (drink) => {
-    return drink.seasonal = true;
+    return drink.seasonal;
 }
 const drinksSeasonal = coffeeMenu.filter(seasonal);
 console.table(drinksSeasonal);
 
+
 //with imported beans
 
-
+const addPhrase = (drink) => {
+    console.log(drink.name + " with imported beans");
+}
+seasonalDrinks.forEach(addPhrase);
